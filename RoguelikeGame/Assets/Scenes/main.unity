@@ -204,7 +204,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -228,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 35, y: 21, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -259,12 +259,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146515058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 33.5, y: 20.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 350168772}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1146515060
 MonoBehaviour:
@@ -278,10 +278,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7c501d54824db4fa560877ce50fcf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 0}
-  roomNumber: 0
-  startcolor: {r: 0, g: 0, b: 0, a: 0}
-  endcolor: {r: 0, g: 0, b: 0, a: 0}
-  generatorPoint: {fileID: 0}
-  xoffset: 0
-  yoffset: 0
+  direction: 0
+  roomLevel: 1
+  mapLength: 4
+  maxRoomNum: 20
+  minRoomNum: 10
+  genRoomNum: 0
+  roomId: []
+  roomVisited: []
+  roomNotVisited: []
+  roomPrefab: {fileID: 4838014745069404901, guid: d31e98b3c1a590e4b8c5343d7355e170,
+    type: 3}
+  roomNumber: 10
+  startColor: {r: 0.37254903, g: 1, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  generatorPoint: {fileID: 350168772}
+  xOffset: 18
+  yOffset: 9
+  rooms: []
+--- !u!1001 &1743760161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637023513960873477, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838014745069404901, guid: d31e98b3c1a590e4b8c5343d7355e170,
+        type: 3}
+      propertyPath: m_Name
+      value: BasicRoom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d31e98b3c1a590e4b8c5343d7355e170, type: 3}
