@@ -28,11 +28,14 @@ public class RoomGenerator : MonoBehaviour
     public GameObject roomPrefab;
     public int roomNumber;
     public Color startColor, endColor;
+    private GameObject endRoom;
 
     [Header("位置控制")]
     public Transform generatorPoint;
     public float xOffset;
     public float yOffset;
+    public LayerMask roomLayer;
+
 
     public List<GameObject> rooms = new List<GameObject> ();
 
@@ -46,7 +49,17 @@ public class RoomGenerator : MonoBehaviour
             //change point position
             ChangePointPos();
         }
+        rooms[0].GetComponent<SpriteRenderer>().color = startColor;//改变第1个房间的颜色
 
+        endRoom = rooms[0];
+        foreach (var room in rooms)
+        {
+            if (room.transform.position.sqrMagnitude > endRoom.transform.position.sqrMagnitude)
+            {
+                endRoom = room;
+            }
+        }
+        endRoom.GetComponent<SpriteRenderer>().color = endColor;//改变房间的颜色
 
     }
 
@@ -56,26 +69,33 @@ public class RoomGenerator : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// 生成随机地图
+    /// 建立一个空的 GameObject 用来做创建房间的点，设置坐标(0,0,0)。
+    /// 每创建1个房间之后，随机在上、下、右判断是否有房间，若没有就创建一个新的房间；若已经有房间，则再次随机切换周围四个方向位置。
+    /// </summary>
     public void ChangePointPos()
     {
-        direction = (Direction)Random.Range(0, 4);
-
-        switch (direction)
+        do  //循环检测生成的地图是否重合
         {
-            case Direction.up:
-                generatorPoint.position += new Vector3(0, yOffset, 0);
-                break;
-            case Direction.down:
-                generatorPoint.position += new Vector3(0, -yOffset, 0);
-                break;
-            case Direction.left:
-                generatorPoint.position += new Vector3(-xOffset, 0, 0);
-                break;
-            case Direction.right:
-                generatorPoint.position += new Vector3(xOffset, 0, 0);
-                break;
-        }
+            direction = (Direction)Random.Range(0, 4);
+
+            switch (direction)
+            {
+                case Direction.up:
+                    generatorPoint.position += new Vector3(0, yOffset, 0);
+                    break;
+                case Direction.down:
+                    generatorPoint.position += new Vector3(0, -yOffset, 0);
+                    break;
+                case Direction.left:
+                    generatorPoint.position += new Vector3(-xOffset, 0, 0);
+                    break;
+                case Direction.right:
+                    generatorPoint.position += new Vector3(xOffset, 0, 0);
+                    break;
+            }
+        } while (Physics2D.OverlapCircle(generatorPoint.position, 0.2f, roomLayer));
     }
 
     /// <summary>
