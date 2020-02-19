@@ -37,27 +37,32 @@ public class RoomGenerator : MonoBehaviour
     public LayerMask roomLayer;
 
 
-    public List<GameObject> rooms = new List<GameObject> ();
+    public List<Room> rooms = new List<Room> ();
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < roomNumber; i++)
         {
-           rooms.Add( Instantiate(roomPrefab, generatorPoint.position, Quaternion.identity));
+           rooms.Add( Instantiate(roomPrefab, generatorPoint.position, Quaternion.identity).GetComponent<Room>());
 
             //change point position
             ChangePointPos();
         }
         rooms[0].GetComponent<SpriteRenderer>().color = startColor;//改变第1个房间的颜色
 
-        endRoom = rooms[0];
+        endRoom = rooms[0].gameObject;
+
+        //找到房间
         foreach (var room in rooms)
         {
-            if (room.transform.position.sqrMagnitude > endRoom.transform.position.sqrMagnitude)
-            {
-                endRoom = room;
-            }
+            //if (room.transform.position.sqrMagnitude > endRoom.transform.position.sqrMagnitude)
+            //{
+            //    endRoom = room.gameObject;
+            //}
+            SetupRoom(room, room.transform.position);
+
+
         }
         endRoom.GetComponent<SpriteRenderer>().color = endColor;//改变房间的颜色
 
@@ -96,6 +101,14 @@ public class RoomGenerator : MonoBehaviour
                     break;
             }
         } while (Physics2D.OverlapCircle(generatorPoint.position, 0.2f, roomLayer));
+    }
+
+    public void SetupRoom(Room newRoom, Vector3 roomPosition)
+    {
+        newRoom.roomUp = Physics2D.OverlapCircle(roomPosition + new Vector3(0, yOffset, 0), 0.2f, roomLayer);
+        newRoom.roomDown = Physics2D.OverlapCircle(roomPosition + new Vector3(0, -yOffset, 0), 0.2f, roomLayer);
+        newRoom.roomLeft = Physics2D.OverlapCircle(roomPosition + new Vector3(-xOffset, 0, 0), 0.2f, roomLayer);
+        newRoom.roomRight = Physics2D.OverlapCircle(roomPosition + new Vector3(xOffset, 0, 0), 0.2f, roomLayer);
     }
 
     /// <summary>
