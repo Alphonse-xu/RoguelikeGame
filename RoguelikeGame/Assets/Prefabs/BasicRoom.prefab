@@ -499,6 +499,9 @@ MonoBehaviour:
   roomRight: 0
   roomUp: 0
   roomDown: 0
+  text: {fileID: 7273756948474980021}
+  stepToStart: 0
+  doorNumber: 0
 --- !u!1 &6566186908099580001
 GameObject:
   m_ObjectHideFlags: 0
