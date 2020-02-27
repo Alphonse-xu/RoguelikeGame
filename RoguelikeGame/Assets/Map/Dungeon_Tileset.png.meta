@@ -751,7 +751,7 @@ TextureImporter:
     second: Dungeon_Tileset_248
   - first:
       213: -7894364265372559648
-    second: Dungeon_Tileset_249
+    second: Door
   - first:
       213: -2608459898201240841
     second: Dungeon_Tileset_250
@@ -781,10 +781,13 @@ TextureImporter:
     second: Dungeon_Tileset_258
   - first:
       213: 2110374276840576187
-    second: Dungeon_Tileset_259
+    second: Door_right
   - first:
       213: 3167497642174091230
     second: Dungeon_Tileset_260
+  - first:
+      213: 9025446291504441489
+    second: Door_left
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -6098,15 +6101,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dungeon_Tileset_249
+      name: Door
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 10
+        y: 16
+        width: 48
+        height: 28
+      alignment: 9
+      pivot: {x: 0.53051233, y: 0.5228838}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6143,10 +6146,10 @@ TextureImporter:
       name: Dungeon_Tileset_251
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 75
+        y: 15
+        width: 48
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6165,9 +6168,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 32
-        width: 32
-        height: 32
+        y: 4
+        width: 19
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6308,13 +6311,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dungeon_Tileset_259
+      name: Door_right
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
+        x: 174
+        y: 4
+        width: 17
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6337,7 +6340,7 @@ TextureImporter:
         width: 234
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6345,6 +6348,27 @@ TextureImporter:
       bones: []
       spriteID: edf8cacc25635fb20800000000000000
       internalID: 3167497642174091230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_left
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4
+        width: 20
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1982d705593d04d70800000000000000
+      internalID: 9025446291504441489
       vertices: []
       indices: 
       edges: []

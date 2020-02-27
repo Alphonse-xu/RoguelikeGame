@@ -23,10 +23,10 @@ public class Room : MonoBehaviour
         doorDown.SetActive(roomDown);
     }
 
-    public void UpdateRoom()
+    public void UpdateRoom(float xOffset,float yOffset)
     {
         //计算距离初始点的网格距离
-        stepToStart = (int)(Mathf.Abs(transform.position.x / 18) + Mathf.Abs(transform.position.y / 9));
+        stepToStart = (int)(Mathf.Abs(transform.position.x / xOffset) + Mathf.Abs(transform.position.y / yOffset));
 
         text.text = stepToStart.ToString();
 
