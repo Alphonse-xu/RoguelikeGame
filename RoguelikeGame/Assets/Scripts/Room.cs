@@ -40,7 +40,13 @@ public class Room : MonoBehaviour
             doorNumber++;
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            CameraControler.instance.ChangeTarget(transform);
+        }
+    }
 
     // Update is called once per frame
     void Update()
